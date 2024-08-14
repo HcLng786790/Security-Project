@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container light-style flex-grow-1 container-p-y">
+    <h4 class="font-weight-bold py-3 mb-4">
+        Account settings
+    </h4>
+    <div class="card overflow-hidden">
+        <div class="row no-gutters row-bordered row-border-light">
+            <div class="col-md-3 pt-0">
+                <div class="list-group list-group-flush account-settings-links">
+                    <a class="list-group-item list-group-item-action active" data-toggle="list"
+                       href="#account-general">General</a>
+<!--                    <a class="list-group-item list-group-item-action" data-toggle="list"-->
+<!--                       href="#account-change-password">Change password</a>-->
+                    <a class="list-group-item list-group-item-action" data-toggle="list"
+                       href="#account-info">Info</a>
+                    <a class="list-group-item list-group-item-action" data-toggle="list"
+                       href="#account-social-links">Social links</a>
+                    <!-- <a class="list-group-item list-group-item-action" data-toggle="list"
+                    href="#account-connections">Connections</a>
+                <a class="list-group-item list-group-item-action" data-toggle="list"
+                    href="#account-notifications">Notifications</a> -->
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="tab-content">
+                    <div class="tab-pane fade active show" id="account-general">
+<!--                        <div class="card-body media align-items-center">-->
+<!--                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt-->
+<!--                                 class="d-block ui-w-80">-->
+<!--                            <div class="media-body ml-4">-->
+<!--                                <label class="btn btn-outline-primary">-->
+<!--                                    Upload new photo-->
+<!--                                    <input type="file" class="account-settings-fileinput">-->
+<!--                                </label> &nbsp;-->
+<!--                                <button type="button" class="btn btn-default md-btn-flat">Reset</button>-->
+<!--                                <div class="text-light small mt-1">Allowed JPG, GIF or PNG. Max size of 800K</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                        <hr class="border-light m-0">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="form-label">Username</label>
+                                <input id="username" type="text" class="form-control mb-1" value="nmaxwell">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Name</label>
+                                <input id="name" type="text" class="form-control" value="Nelle Maxwell">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">E-mail</label>
+                                <input id="email" type="text" class="form-control mb-1" value="nmaxwell@mail.com">
+                                <!-- <div class="alert alert-warning mt-3">
+                                Your email is not confirmed. Please check your inbox.<br>
+                                <a href="javascript:void(0)">Resend confirmation</a>
+                            </div> -->
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Company</label>
+                                <input id="company" type="text" class="form-control" value="Company Ltd.">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="account-change-password">
+                        <div class="card-body pb-2">
+                            <div class="form-group">
+                                <label class="form-label">Current password</label>
+                                <input type="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">New password</label>
+                                <input type="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Repeat new password</label>
+                                <input type="password" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="account-info">
+                        <div class="card-body pb-2">
+                            <div class="form-group">
+                                <label class="form-label">Bio</label>
+                                <textarea id="bio" class="form-control"
+                                          rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nunc arcu, dignissim sit amet sollicitudin iaculis, vehicula id urna. Sed luctus urna nunc. Donec fermentum, magna sit amet rutrum pretium, turpis dolor molestie diam, ut lacinia diam risus eleifend sapien. Curabitur ac nibh nulla. Maecenas nec augue placerat, viverra tellus non, pulvinar risus.</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Birthday</label>
+                                <input id="birthday" type="text" class="form-control" value="May 3, 1995">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Country</label>
+                                <input id="country" type="text" class="form-control" value="USA">
+
+                                <!-- <select id="country" class="custom-select">
+                                <option>USA</option>
+                                <option selected>Canada</option>
+                                <option>UK</option>
+                                <option>Germany</option>
+                                <option>France</option>
+                            </select> -->
+                            </div>
+                        </div>
+                        <hr class="border-light m-0">
+                        <div class="card-body pb-2">
+                            <h6 class="mb-4">Contacts</h6>
+                            <div class="form-group">
+                                <label class="form-label">Phone</label>
+                                <input id="phone" type="text" class="form-control" value="+0 (123) 456 7891">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Website</label>
+                                <input id="website" type="text" class="form-control" value>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="account-social-links">
+                        <div class="card-body pb-2">
+                            <div class="form-group">
+                                <label class="form-label">Twitter</label>
+                                <input id="twitter" type="text" class="form-control"
+                                       value="https://twitter.com/user">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Facebook</label>
+                                <input id="facebook" type="text" class="form-control"
+                                       value="https://www.facebook.com/user">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Google+</label>
+                                <input id="google" type="text" class="form-control" value>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">LinkedIn</label>
+                                <input id="linkedIn" type="text" class="form-control" value>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Instagram</label>
+                                <input id="instagram" type="text" class="form-control"
+                                       value="https://www.instagram.com/user">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-right mt-3">
+                        <button id="btn-save" type="button" class="btn btn-primary">Save changes</button>&nbsp;
+                        <button id="btn-logout" type="button" class="btn btn-default">Log out</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript">
+</script>
+<script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const apiEndpoint = `http://localhost:8080/user/api/profile`;
+
+            fetch(apiEndpoint)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Hiển thị thông tin người dùng lên giao diện
+                    document.getElementById("username").value = data.username;
+                    document.getElementById("name").value = data.name;
+                    document.getElementById("email").value = data.email;
+                    document.getElementById("company").value = data.company;
+                    document.getElementById('bio').value = data.bio;
+                    document.getElementById('birthday').value = data.birthday;
+                    document.getElementById('country').value = data.country;
+                    document.getElementById('phone').value = data.phone;
+                    document.getElementById('website').value = data.website;
+
+                    document.getElementById('twitter').value = data.twitter;
+                    document.getElementById('facebook').value = data.facebook;
+                    document.getElementById('google').value = data.google;
+                    document.getElementById('linkedIn').value = data.linkedIn;
+                    document.getElementById('instagram').value = data.instagram;
+                    // Nếu có avatar URL trong dữ liệu trả về
+                    if (data.avatarUrl) {
+                        document.getElementById("user-avatar").src = data.avatarUrl;
+                    }
+                    console.log(data);
+                })
+                .catch(error => console.error("Error fetching user data:", error));
+        });
+
+</script>
+<script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const saveChangesBtn = document.getElementById("btn-save");
+            saveChangesBtn.addEventListener("click", function () {
+                const username = document.getElementById("username").value;
+                const name = document.getElementById("name").value;
+                const email = document.getElementById("email").value;
+                const company = document.getElementById("company").value;
+                const bio = document.getElementById("bio").value;
+                const birthday = document.getElementById("birthday").value;
+                const country = document.getElementById("country").value;
+                const phone = document.getElementById("phone").value;
+                const website = document.getElementById("website").value;
+                const twitter = document.getElementById("twitter").value;
+                const facebook = document.getElementById("facebook").value;
+                const google = document.getElementById("google").value;
+                const linkedIn = document.getElementById("linkedIn").value;
+                const instagram = document.getElementById("instagram").value;
+
+                const userData = {
+                    username: username,
+                    name: name,
+                    email: email,
+                    company: company,
+                    // Add other fields as needed
+                    bio: bio,
+                    birthday: birthday,
+                    country: country,
+                    phone: phone,
+                    website: website,
+                    twitter: twitter,
+                    facebook: facebook,
+                    google: google,
+                    linkedIn: linkedIn,
+                    instagram: instagram
+                };
+
+                const apiEndpoint = `http://localhost:8080/user/api/update`;
+
+                fetch(apiEndpoint, {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(userData)
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            alert("User profile updated successfully!");
+                            // Redirect or handle success as needed
+                        } else {
+                            throw new Error('Failed to update user profile');
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Error updating user profile:", error);
+                        alert("An error occurred while updating user profile");
+                    });
+            });
+
+            // Logout functionality
+            const logoutBtn = document.getElementById("btn-logout");
+            logoutBtn.addEventListener("click", function () {
+                const logoutEndpoint = `http://localhost:8080/logout`;
+
+                fetch(logoutEndpoint, {
+                    method: "GET", // Or "DELETE" depending on your API
+                    headers: {
+                        "Content-Type": "application/json"
+                        // You might need additional headers like Authorization if using tokens
+                    }
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            // Clear any stored user data or tokens in local storage, session storage, or cookies
+                            // Redirect to login page or perform any other action needed after logout
+                            alert("Logged out successfully!");
+                            window.location.href = "/login"; // Example redirect to login page
+                        } else {
+                            throw new Error('Failed to logout');
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Error logging out:", error);
+                        alert("An error occurred while logging out");
+                    });
+            });
+        });
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>User Management System</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/modal.css}"></head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">User Management System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <h1>List Users</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3">
+<!--            <a href="/admin/send-email" class="btn btn-primary btn-sm mb-3">Add User</a>-->
+            <button id="openModalBtn">Send Mail</button>
+
+        </div>
+    </div>
+
+    <!-- Modal form -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="emailForm" action="#" th:action="@{/admin/send-email}" method="post">
+                <label for="to">To:</label>
+                <input type="email" id="to" name="to" required>
+                <br>
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" required>
+                <br>
+                <label for="body">Body:</label>
+                <textarea id="body" name="body" required></textarea>
+                <br>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <div th:if="${message}">
+        <p th:text="${message}"></p>
+    </div>
+
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>UserName</th>
+            <th>User Phone</th>
+            <th>User Email</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+
+        <tbody id="userTableBody">
+        <!-- Rows will be added here by JavaScript -->
+        </tbody>
+    </table>
+
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const apiEndpoint = `http://localhost:8080/admin/api/all`;
+        fetch(apiEndpoint) // Địa chỉ API của bạn để lấy danh sách người dùng
+            .then(response => response.json())
+            .then(data => {
+                const userTableBody = document.getElementById('userTableBody');
+                data.forEach(user => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${user.username}</td>
+                        <td>${user.name}</td>
+                        <td>${user.email}</td>
+                        <td>
+                            <a href="/admin/update/user/${user.id}" class="btn btn-primary">Update</a>
+                            <a href="/students/${user.id}" class="btn btn-danger">Delete</a>
+                        </td>
+                    `;
+                    userTableBody.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Error fetching user data:', error));
+    });
+</script>
+
+<!--Send mail modal-->
+<script>
+        // JavaScript để hiển thị và ẩn modal
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("openModalBtn");
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {
+            modal.style.display = "flex";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
